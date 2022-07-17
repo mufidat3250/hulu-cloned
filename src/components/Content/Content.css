@@ -1,0 +1,9 @@
+.content >div{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+.content::-webkit-scrollbar{
+    display: none;
+}

@@ -1,0 +1,43 @@
+.vediocard{
+    width: 450px;
+    padding: 40px;
+    color: white;
+    transition: trasform 100ms ease-in;
+}
+.vediocard:hover{
+    transform: scale(1.08);
+}
+.vediocard >h2{
+    padding-top: 5px;
+}
+.vediocard p {
+    font-size: small;
+    opacity: 0.6;
+}
+.vediocard p:last-child{
+    display: none;
+}
+.vediocard:hover p:last-child{
+    display: inline;
+    display: flex;
+    align-items: center;
+    
+}
+.vediocard :nth-child(2){
+    margin-top: 10px;
+}
+.img__wrapper{
+    width: 100%;
+    height: 300px;
+}
+.img__wrapper > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.likes > .MuiSvgIcon-root{
+    width: 20px;
+    margin-left: 4px;
+    margin-right: 4px;
+}

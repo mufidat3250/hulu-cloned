@@ -1,7 +1,6 @@
 .App{
   width: 100vw;
-  /* background-color:#042727; */
-  /* height: 100vh; */
-  background-image: linear-gradient(to right, #051421 , #042727);
-  
+  height: 100vh;
+  background-image: linear-gradient(to right, #051421 , #042727);  
+  overflow: auto;
 }
