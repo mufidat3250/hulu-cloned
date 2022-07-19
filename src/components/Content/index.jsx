@@ -28,11 +28,15 @@ const Content = ({ selectedOption }) => {
   }, [selectedOption]);
   return (
     <div className="content">
-      <FlipMove>
-        {movies.map((movies, index) => (
-          <VedioCard key={`movieCard${index}`} movies={movies} />
-        ))}
-      </FlipMove>
+      {!movies ? (
+        <p className="loading">Loading....</p>
+      ) : (
+        <FlipMove>
+          {movies.map((movies, index) => (
+            <VedioCard key={`movieCard${index}`} movies={movies} />
+          ))}
+        </FlipMove>
+      )}
     </div>
   );
 };

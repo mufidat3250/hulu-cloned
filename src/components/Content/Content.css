@@ -7,3 +7,6 @@
 .content::-webkit-scrollbar{
     display: none;
 }
+.loading{
+    color:white;
+}
