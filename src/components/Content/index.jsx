@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import VedioCard from "../VedioCard/Index";
+import VideoCard from "../VedioCard/Index";
 import "./Content.css";
 import axios from "axios";
 import FlipMove from "react-flip-move";
@@ -7,9 +7,8 @@ const baseUrl = "https://api.themoviedb.org/3";
 
 const Content = ({ selectedOption }) => {
   const [movies, Setmovies] = useState([]);
-
   console.log(movies);
-  const fetchData = async () => {
+  const fetchMovies = async () => {
     const {
       data: { results },
     } = await axios({
@@ -24,7 +23,7 @@ const Content = ({ selectedOption }) => {
   };
 
   useEffect(() => {
-    fetchData();
+    fetchMovies();
   }, [selectedOption]);
   return (
     <div className="content">
@@ -32,9 +31,9 @@ const Content = ({ selectedOption }) => {
         <p className="loading">Loading....</p>
       ) : (
         <FlipMove>
-          {movies.map((movies, index) => (
-            <VedioCard key={`movieCard${index}`} movies={movies} />
-          ))}
+          {movies.map((movies, index) => {
+            return <VideoCard key={`movieCard${index}`} movies={movies} />;
+          })}
         </FlipMove>
       )}
     </div>

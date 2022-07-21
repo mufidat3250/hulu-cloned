@@ -3,12 +3,19 @@ import React from "react";
 import "./VedioCard.css";
 import TextTruncate from "react-text-truncate";
 import { forwardRef } from "react";
+import { useNavigate } from "react-router-dom";
 
-const VedioCard = forwardRef(({ movies }, ref) => {
+const VideoCard = forwardRef(({ movies }, ref) => {
   const baseUrl = "https://image.tmdb.org/t/p/original/";
-
+  const navigate = useNavigate();
   return (
-    <div className="vediocard" ref={ref}>
+    <div
+      className="vediocard"
+      ref={ref}
+      onClick={() => {
+        navigate(`/video/${movies.id}`);
+      }}
+    >
       <div className="img__wrapper">
         <img src={`${baseUrl}${movies.backdrop_path || movies.poster_path}`} />
       </div>
@@ -28,4 +35,4 @@ const VedioCard = forwardRef(({ movies }, ref) => {
     </div>
   );
 });
-export default VedioCard;
+export default VideoCard;

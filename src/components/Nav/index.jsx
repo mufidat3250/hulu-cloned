@@ -49,9 +49,12 @@ const Nav = ({ setSelectedOption }) => {
   console.log(setSelectedOption);
   return (
     <div className="nav">
-      {navData.map(({ title, link }) => {
-        console.log(link);
-        return <h2 onClick={() => setSelectedOption(link)}>{title}</h2>;
+      {navData.map(({ title, link }, index) => {
+        return (
+          <h2 onClick={() => setSelectedOption(link)} key={`nav${index}`}>
+            {title}
+          </h2>
+        );
       })}
 
       {/* <h2 onClick={() => setSelectedOption(Request.fetchActionMovies)}>

@@ -3,6 +3,7 @@
     padding: 40px;
     color: white;
     transition: trasform 100ms ease-in;
+    cursor: pointer;
 }
 .vediocard:hover{
     transform: scale(1.08);
