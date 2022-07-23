@@ -7,6 +7,7 @@ const baseUrl = "https://api.themoviedb.org/3";
 
 const Content = ({ selectedOption }) => {
   const [movies, Setmovies] = useState([]);
+
   console.log(movies);
   const fetchMovies = async () => {
     const {
@@ -21,22 +22,26 @@ const Content = ({ selectedOption }) => {
     console.log({ results }, "changed result");
     Setmovies(results);
   };
+  if (!movies) {
+    return <p>loading</p>;
+  }
 
   useEffect(() => {
     fetchMovies();
   }, [selectedOption]);
   return (
-    <div className="content">
-      {!movies ? (
-        <p className="loading">Loading....</p>
-      ) : (
+    <>
+      <div className="content">
+        {" "}
+        (
         <FlipMove>
           {movies.map((movies, index) => {
             return <VideoCard key={`movieCard${index}`} movies={movies} />;
           })}
         </FlipMove>
-      )}
-    </div>
+        )
+      </div>
+    </>
   );
 };
 

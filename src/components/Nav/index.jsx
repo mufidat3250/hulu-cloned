@@ -1,6 +1,7 @@
 import React from "react";
 import Request from "../Request/Request";
 import "./Nav.css";
+import { useNavigate } from "react-router-dom";
 
 const navData = [
   {
@@ -46,20 +47,22 @@ const navData = [
 ];
 
 const Nav = ({ setSelectedOption }) => {
-  console.log(setSelectedOption);
+  const navigate = useNavigate()
   return (
     <div className="nav">
       {navData.map(({ title, link }, index) => {
         return (
-          <h2 onClick={() => setSelectedOption(link)} key={`nav${index}`}>
+          <h2
+            onClick={() => {
+              setSelectedOption(link);
+              navigate('/')
+            }}
+            key={`nav${index}`}
+          >
             {title}
           </h2>
         );
       })}
-
-      {/* <h2 onClick={() => setSelectedOption(Request.fetchActionMovies)}>
-        Action
-      </h2> */}
     </div>
   );
 };

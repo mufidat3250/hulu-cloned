@@ -9,9 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: npm run build
+      - run: yarn build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_HULU_CLONE_379C6 }}'
-          projectId: hulu-clone-379c6
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_HULU_CLONED }}'
+          projectId: hulu-cloned

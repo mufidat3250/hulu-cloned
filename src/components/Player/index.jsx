@@ -29,9 +29,13 @@ const Player = () => {
   }, [id]);
 
   if (singleMovie === null) {
-    return <h1>Loading</h1>;
+    return (
+      <div className="loader_container">
+        <div className="loading"></div>
+      </div>
+    );
   }
-  console.log(singleMovie, "singleMovies");
+
   const renderTrailer = () => {
     const trailerVid = singleMovie?.videos.results.find(
       ({ type }) => type === "Trailer"
@@ -40,26 +44,56 @@ const Player = () => {
     console.log(trailerDetails);
     return (
       <>
-        <div
-          style={{
-            backgroundImage: `url(${IMAGE_PATH}${singleMovie.backdrop_path}`,
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            width: "100%",
-            height: "60%",
-          }}
-          className="video"
-        >
+        <div className="video">
           <YouTube
             videoId={trailerVid.key}
             containerClassName={"youtube-container"}
-            opts={{ width: "100%" }}
+            opts={{ width: "100%", height: "500px" }}
           />
         </div>
         <div className="suggestedVideos">
-          <h1>{singleMovie.original_title}</h1>
-          <i>{singleMovie.overview}</i>
+          <span className="title">{singleMovie.original_title}</span>
+          <div className="overview">
+            <i>{singleMovie.overview}</i>
+          </div>
+          <div className="attribute">
+            <p className="group">
+              {" "}
+              <strong>Gengres:</strong>
+              <span className="genres">
+                {singleMovie.genres.map((genre, index) => (
+                  <span key={index}>{genre.name}</span>
+                ))}
+              </span>
+            </p>
+            <p className="group">
+              {" "}
+              <strong> Spoken Language: </strong>
+              <span className="genres">
+                {singleMovie.spoken_languages[0].english_name}
+              </span>
+            </p>
+            <p className="group">
+              {" "}
+              <strong>Popularity: </strong>
+              <span className="genres">{singleMovie.popularity}</span>
+            </p>
+            <p className="group">
+              {" "}
+              <strong>Revenue: </strong>
+              <span className="genres">{singleMovie.revenue}</span>
+            </p>
+            <p className="group">
+              {" "}
+              <strong>Popularity: </strong>
+              <span className="genres">{singleMovie.popularity}</span>
+            </p>
+            <p className="group">
+              {" "}
+              <strong>Tagline: </strong>
+              <span className="genres">{singleMovie.tagline}</span>
+            </p>
+          </div>
         </div>
       </>
     );
