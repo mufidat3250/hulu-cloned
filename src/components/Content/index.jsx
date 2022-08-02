@@ -7,8 +7,6 @@ const baseUrl = "https://api.themoviedb.org/3";
 
 const Content = ({ selectedOption }) => {
   const [movies, Setmovies] = useState([]);
-
-  console.log(movies);
   const fetchMovies = async () => {
     const {
       data: { results },
@@ -19,7 +17,6 @@ const Content = ({ selectedOption }) => {
         api_key: import.meta.env.VITE_API__KEY,
       },
     });
-    console.log({ results }, "changed result");
     Setmovies(results);
   };
   if (!movies) {
@@ -30,18 +27,16 @@ const Content = ({ selectedOption }) => {
     fetchMovies();
   }, [selectedOption]);
   return (
-    <>
-      <div className="content">
-        {" "}
-        (
-        <FlipMove>
-          {movies.map((movies, index) => {
-            return <VideoCard key={`movieCard${index}`} movies={movies} />;
-          })}
-        </FlipMove>
-        )
-      </div>
-    </>
+    <div className="content">
+      {" "}
+      (
+      <FlipMove>
+        {movies.map((movies, index) => {
+          return <VideoCard key={`movieCard${index}`} movies={movies} />;
+        })}
+      </FlipMove>
+      )
+    </div>
   );
 };
 

@@ -5,43 +5,71 @@
     padding: 12px;
     overflow-x: scroll;
 
+
 }
 .header__icon_Container{
     display: flex;
     color: white;
+    display: none;
 }
-
-.header__icon{
+.handbugger{
+}
+.displayNav{
+    display: block;
+    background-color:#266161;
+    position: absolute;
+    top: 0%;
+    left: 0;
+    width: 50%;
+    z-index: 1000;
     display: flex;
     flex-direction: column;
-    text-align: center ;
-    width: 100px;
-    cursor: pointer;
+    align-items: center;
+    height: 100vh;
+    transition: 2s;
+}
+.side__nav_container{
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
+
 .header__icon > p{
-    display: none;
+    visibility: hidden;
     letter-spacing: 3px;
     font-size: small;
-    margin-left: auto;
+    /* margin-left: auto; */
     margin-right: auto;
     text-transform: uppercase;
 }
 
 .header__icon--active > p{
     display: inline !important;
+    visibility: visible;
+    text-align: center;
 }
-
-.header__icon:hover > p{
-    display: inline;
-}
-
 
 .header__icon > .MuiSvgIcon-root{
     margin: 0 auto;
     font-size: 30px;
 }
+.header__icon{
+    display:flex;
+    margin-bottom:10px;
+    width:100%;
+    justify-content: flex-start;
+    align-items:center;
 
+}
+.header__icon:hover > p{
+    visibility: visible;
+    text-align: center;
+}
+.header__icon .icon{
+    margin-left: 20px;
+}
 
 .hulu__logo{
     object-fit: contain;
@@ -50,4 +78,41 @@
 }
 .Header::-webkit-scrollbar{
     display: none;
+}
+.video__container{
+    height: 100vh;
+    overflow: auto;
+    padding-bottom: 13rem;
+}
+
+@media (min-width:521px) {
+    .handbugger{
+        display: none;
+    }
+    .header__icon_Container{
+        display: flex;
+        color: white;
+        display: block;
+        flex-direction: row;
+    }
+    .header__item{
+        display: flex;
+    }
+    .closeIcon{
+        display: none;
+    }
+   .header__item .header__icon{
+        display: flex;
+        flex-direction: column;
+        text-align: center ;
+        width: 100px;
+        cursor: pointer; 
+        justify-content: center;
+        align-items: center;   
+    }
+    .header__icon:hover > p{
+        /* display: inline; */
+        align-self: center;
+
+    }
 }

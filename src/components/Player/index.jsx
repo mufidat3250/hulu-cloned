@@ -40,8 +40,6 @@ const Player = () => {
     const trailerVid = singleMovie?.videos.results.find(
       ({ type }) => type === "Trailer"
     );
-    const trailerDetails = singleMovie.videos.results[0];
-    console.log(trailerDetails);
     return (
       <>
         <div className="video">
@@ -100,7 +98,7 @@ const Player = () => {
   };
 
   renderTrailer();
-  return <div>{singleMovie.videos ? renderTrailer() : null}</div>;
+  return <div className="video__container">{singleMovie.videos ? renderTrailer() : null}</div>;
 };
 
 export default Player;

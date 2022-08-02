@@ -2,7 +2,8 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-
+    overflow:auto;
+    height: 100vh;
 }
 .content::-webkit-scrollbar{
     display: none;
